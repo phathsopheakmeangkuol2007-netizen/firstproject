@@ -1,7 +1,7 @@
 #include <stdio.h>
 
-int main{
-    printf("Appivath is a nika");
+int main(){
+    printf("PS family");
 
     return 0;
 }
