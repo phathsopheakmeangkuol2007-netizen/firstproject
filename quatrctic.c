@@ -1,3 +1,4 @@
+// BY: Menagkuol bros smos
 //quadratic equation ax² + bx + c = 0
 #include <stdio.h>
 #include <math.h>
@@ -11,8 +12,8 @@ typedef enum {
 
 typedef struct {
     RootType type;
-    double real1, imag1;  // First root
-    double real2, imag2;  // Second root
+    double real1, imag1;
+    double real2, imag2;
 } QuadraticResult;
 
 QuadraticResult solve_quadratic(double a, double b, double c) {
@@ -26,16 +27,13 @@ QuadraticResult solve_quadratic(double a, double b, double c) {
     double discriminant = b * b - 4.0 * a * c;
 
     if (discriminant > 0.0) {
-        // Two distinct real roots
         result.type = TWO_REAL_ROOTS;
         result.real1 = (-b + sqrt(discriminant)) / (2.0 * a);
         result.real2 = (-b - sqrt(discriminant)) / (2.0 * a);
     } else if (discriminant == 0.0) {
-        // One repeated real root
         result.type = ONE_REAL_ROOT;
         result.real1 = result.real2 = -b / (2.0 * a);
     } else {
-        // Two complex conjugate roots
         result.type = COMPLEX_ROOTS;
         result.real1 = result.real2 = -b / (2.0 * a);
         result.imag1 = sqrt(-discriminant) / (2.0 * a);
@@ -63,16 +61,19 @@ void print_result(QuadraticResult r) {
     }
 }
 
-// Example usage
 int main(void) {
-    // x^2 - 5x + 6 = 0  → roots: 3, 2
-    print_result(solve_quadratic(1, -5, 6));
+    double a, b, c;
 
-    // x^2 - 2x + 1 = 0  → root: 1 (repeated)
-    print_result(solve_quadratic(1, -2, 1));
+    printf("Solve: ax^2 + bx + c = 0\n");
+    printf("Enter a: ");
+    scanf("%lf", &a);
+    printf("Enter b: ");
+    scanf("%lf", &b);
+    printf("Enter c: ");
+    scanf("%lf", &c);
 
-    // x^2 + x + 1 = 0   → complex roots
-    print_result(solve_quadratic(1, 1, 1));
+    printf("\nEquation: %.4gx^2 + %.4gx + %.4g = 0\n", a, b, c);
+    print_result(solve_quadratic(a, b, c));
 
     return 0;
 }
