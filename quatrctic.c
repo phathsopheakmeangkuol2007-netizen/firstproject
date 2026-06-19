@@ -1,3 +1,4 @@
+// BY: Menagkuol bros smos
 //quadratic equation ax² + bx + c = 0
 #include <stdio.h>
 #include <math.h>
