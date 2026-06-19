@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <math.h>
+// khutrotnakpito
 
 void solve_quadratic(double a, double b, double c) {
     if (a == 0) {
